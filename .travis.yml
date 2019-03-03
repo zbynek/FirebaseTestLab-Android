@@ -1,8 +1,12 @@
-language: java
-install: true
-
-jdk:
-  - oraclejdk8
+language: android
+android:
+  components:
+    - build-tools-27.0.2
+    - android-27
+    - extra
+  licenses:
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 script:
   - ./gradlew build :plugin:jacocoTestReport -s --info
