@@ -5,7 +5,7 @@ jdk:
   - oraclejdk8
 
 script:
-  - ./gradlew build :plugin:jacocoTestReport -s
+  - ./gradlew build :plugin:jacocoTestReport -s --info
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
