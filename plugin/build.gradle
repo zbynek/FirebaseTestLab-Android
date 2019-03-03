@@ -52,3 +52,13 @@ dependencies {
     implementation "com.android.tools.build:gradle:3.2.0"
     testCompile "junit:junit-dep:4.11"
 }
+
+
+jacocoTestReport {
+    reports {
+        html.enabled false
+        csv.enabled false
+        xml.enabled true
+        xml.destination file("${rootProject.buildDir}/reports/jacoco/report.xml")
+    }
+}
