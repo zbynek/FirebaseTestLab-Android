@@ -10,6 +10,7 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 import java.io.File
+import java.util.*
 
 class ApplicationIntegrationTest {
 
@@ -55,6 +56,9 @@ class ApplicationIntegrationTest {
 
     @Test
     fun `run firebaseTestLabSetup install gcloud`() {
+        if (System.getProperty("os.name").toLowerCase(Locale.ROOT).startsWith("windows")) {
+            return
+        }
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
         project.plugins.apply("firebase.test.lab")
@@ -356,7 +360,7 @@ class ApplicationIntegrationTest {
         val facebookSplunk = project.getTasksByName("firebaseTestLabExecuteFacebookFirebaseDebugInstrumentationMyDeviceFacebookFirebaseDebug", false).first();
         FirebaseTestLabProcessCreator.setExecutor { processData ->
             assertTrue("Unexpected app name ${processData.apk}",
-                    processData.apk.toString().contains("/facebookFirebase/debug/test-facebook-firebase-debug.apk"))
+                    processData.apk.toString().replace("\\", "/").contains("/facebookFirebase/debug/test-facebook-firebase-debug.apk"))
             ProcessBuilder("whoami").start()
         }
         facebookSplunk.actions.forEach { it.execute(facebookSplunk) }

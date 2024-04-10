@@ -43,11 +43,10 @@ class FirebaseTestLabPlugin : Plugin<Project> {
             isIgnoreExitValue = true
 
             doLast {
-                executionResult?.let {
-                    if (it.exitValue != 0) {
+                if (executionResult.get().exitValue != 0) {
                         println(standardOutput.toString())
                         throw GradleException("exec failed; see output above")
-                    }
+
                 }
             }
         }
