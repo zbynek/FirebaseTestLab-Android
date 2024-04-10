@@ -7,7 +7,7 @@ Plugin for which integrates Firebase Test Lab with Android Project. Simplify run
 
 ### Contributors
 - [Jacek Marchwicki](https://github.com/jacek-marchwicki)
-- [Zbynek Konieczny] (https://github.com/zbynek)
+- [Zbynek Konecny](https://github.com/zbynek)
 
 #### Available features
 
@@ -41,7 +41,7 @@ Plugin for which integrates Firebase Test Lab with Android Project. Simplify run
            }
        }
        dependencies {
-           classpath "firebase.test.lab:plugin:X.X.X"
+           classpath "zbynek.firebase.test.lab:plugin:X.X.X"
        }
    }
    ```

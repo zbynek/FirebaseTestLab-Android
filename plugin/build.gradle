@@ -5,20 +5,20 @@ apply plugin: "maven-publish"
 apply plugin: "com.gradle.plugin-publish"
 apply plugin: "org.gradle.kotlin.kotlin-dsl"
 
-group = "firebase.test.lab"
-version = "2.6.4"
+group = "zbynek.firebase.test.lab"
+version = "2.6.5"
 
 pluginBundle {
-    website = "https://github.com/piotrmadry/firebase-test-lab-gradle-plugin"
-    vcsUrl = "https://github.com/piotrmadry/firebase-test-lab-gradle-plugin.git"
+    website = "https://github.com/zbynek/firebase-test-lab-gradle-plugin"
+    vcsUrl = "https://github.com/zbynek/firebase-test-lab-gradle-plugin.git"
     tags = ["firebase", "test-lab", "espresso", "instrumental-tests", "kotlin", "android"]
 }
 
 gradlePlugin {
     plugins {
         FirebaseTestLabPlugin {
-            id = "firebase.test.lab"
-            displayName = "Firebase Test Lab Plugin"
+            id = "zbynek.firebase.test.lab"
+            displayName = "Firebase Test Lab Plugin [FORKED]"
             description = "Gradle plugin for Android Test Lab"
             implementationClass = "com.appunite.firebasetestlabplugin.FirebaseTestLabPlugin"
         }
@@ -30,7 +30,7 @@ jar {
         attributes(
                 'Build-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ss.SSSZ"),
                 'Build-Revision': project.version,
-                'Built-By': 'piotrmadry',
+                'Built-By': 'zbynek',
                 'Created-By': "Gradle ${gradle.gradleVersion}",
                 'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
         )

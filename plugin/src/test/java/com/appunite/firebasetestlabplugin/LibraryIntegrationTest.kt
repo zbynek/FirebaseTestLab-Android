@@ -24,7 +24,7 @@ class LibraryIntegrationTest {
                 setTargetSdkVersion(27)
             }
         }
-        project.plugins.apply("firebase.test.lab")
+        project.plugins.apply("zbynek.firebase.test.lab")
         project.configure<FirebaseTestLabPluginExtension> {
             googleProjectId = "test"
             keyFile = File(simpleProject, "key.json")
