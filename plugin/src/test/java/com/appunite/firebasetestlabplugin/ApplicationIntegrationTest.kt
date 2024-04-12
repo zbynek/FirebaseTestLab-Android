@@ -42,7 +42,7 @@ class ApplicationIntegrationTest {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = ProjectBuilder.builder().withProjectDir(simpleProject).build()
         project.plugins.apply("com.android.application")
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             compileSdkVersion(27)
         }
@@ -61,7 +61,7 @@ class ApplicationIntegrationTest {
         }
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<FirebaseTestLabPluginExtension> {
             googleProjectId = "test"
             keyFile = File(simpleProject, "key.json")
@@ -76,7 +76,7 @@ class ApplicationIntegrationTest {
     fun `ensure after evaluation tasks presented`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<FirebaseTestLabPluginExtension> {
             googleProjectId = "test"
             keyFile = File(simpleProject, "key.json")
@@ -94,7 +94,7 @@ class ApplicationIntegrationTest {
     fun `ensure after evaluation download tasks presented`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<FirebaseTestLabPluginExtension> {
             googleProjectId = "test"
             cloudBucketName = "test-bucket"
@@ -114,7 +114,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created for abi splits with universal apk`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             splits.also {
                 it.abi.also {
@@ -152,7 +152,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created for abi splits without unversal apk`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             splits.also {
                 it.abi.also {
@@ -183,7 +183,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created for abi splits with filter`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             splits.also {
                 it.abi.also {
@@ -217,7 +217,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created for abi splits with filter all`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             splits.also {
                 it.abi.also {
@@ -249,7 +249,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created when abi split is disabled`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
 
         project.configure<FirebaseTestLabPluginExtension> {
             googleProjectId = "test"
@@ -280,7 +280,7 @@ class ApplicationIntegrationTest {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = ProjectBuilder.builder().withProjectDir(simpleProject).build()
         project.plugins.apply("com.android.application")
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             compileSdkVersion(27)
             defaultConfig.also {
@@ -307,7 +307,7 @@ class ApplicationIntegrationTest {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = ProjectBuilder.builder().withProjectDir(simpleProject).build()
         project.plugins.apply("com.android.application")
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             compileSdkVersion(27)
             defaultConfig.also {
@@ -334,7 +334,7 @@ class ApplicationIntegrationTest {
     fun `ensure tasks are created correctly for flavors`() {
         val simpleProject = File(javaClass.getResource("simple").file)
         val project = prepareSimpleProject()
-        project.plugins.apply("zbynek.firebase.test.lab")
+        project.plugins.apply("io.github.zbynek.firebase")
         project.configure<AppExtension> {
             flavorDimensions("auth", "logs")
             productFlavors.apply {

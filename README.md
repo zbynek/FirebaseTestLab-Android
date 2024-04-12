@@ -41,13 +41,13 @@ Plugin for which integrates Firebase Test Lab with Android Project. Simplify run
            }
        }
        dependencies {
-           classpath "zbynek.firebase.test.lab:plugin:X.X.X"
+           classpath "io.github.zbynek.firebase:plugin:X.X.X"
        }
    }
    ```
 5. Add configuration in your project `build.gradle`:
     ```groovy
-    apply plugin: 'firebase.test.lab'
+    apply plugin: 'io.github.zbynek.firebase'
  
     firebaseTestLab {
         keyFile = file("test-lab-key.json")

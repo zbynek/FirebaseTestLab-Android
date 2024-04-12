@@ -81,9 +81,7 @@ class FirebaseTestLabPlugin : Plugin<Project> {
                 project)
 
         project.afterEvaluate {
-            logger.lifecycle("*************** Firebase Test Lab Plugin ***************")
             setup()
-            logger.lifecycle("********************************************************")
         }
     }
 
@@ -116,7 +114,7 @@ class FirebaseTestLabPlugin : Plugin<Project> {
                     else -> File(project.buildDir, "gcloud")
                 }
 
-                project.logger.lifecycle("Google Cloud SDK installed at: $installDir")
+                project.logger.debug("Google Cloud SDK location: $installDir")
                 val cloudSdkDir = File(installDir, "google-cloud-sdk")
                 val sdkPath = File(cloudSdkDir, "bin")
 
@@ -136,6 +134,8 @@ class FirebaseTestLabPlugin : Plugin<Project> {
                                     "firebaseTestLab {\n" +
                                     "  cloudSdkPath = \"Xyz\"\n" +
                                     "}\n")
+                        } else {
+                            project.logger.lifecycle("Downloading Google Cloud SDK to $installDir")
                         }
                     }
                     commandLine = listOf("bash", "-c", "rm -r \"${cloudSdkDir.absolutePath}\";export CLOUDSDK_CORE_DISABLE_PROMPTS=1 && export CLOUDSDK_INSTALL_DIR=\"${installDir.absolutePath}\" && curl https://sdk.cloud.google.com | bash")

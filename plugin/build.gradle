@@ -5,21 +5,21 @@ apply plugin: "maven-publish"
 apply plugin: "com.gradle.plugin-publish"
 apply plugin: "org.gradle.kotlin.kotlin-dsl"
 
-group = "zbynek.firebase.test.lab"
+group = "io.github.zbynek.firebase"
 version = "2.6.5"
 
 pluginBundle {
-    website = "https://github.com/zbynek/firebase-test-lab-gradle-plugin"
-    vcsUrl = "https://github.com/zbynek/firebase-test-lab-gradle-plugin.git"
+    website = "https://github.com/zbynek/FirebaseTestLab-Android"
+    vcsUrl = "https://github.com/zbynek/FirebaseTestLab-Android.git"
     tags = ["firebase", "test-lab", "espresso", "instrumental-tests", "kotlin", "android"]
 }
 
 gradlePlugin {
     plugins {
         FirebaseTestLabPlugin {
-            id = "zbynek.firebase.test.lab"
-            displayName = "Firebase Test Lab Plugin [FORKED]"
-            description = "Gradle plugin for Android Test Lab"
+            id = "io.github.zbynek.firebase"
+            displayName = "Firebase Test Lab Plugin"
+            description = "Plugin for Android Test Lab, compatible with Gradle 8"
             implementationClass = "com.appunite.firebasetestlabplugin.FirebaseTestLabPlugin"
         }
     }
